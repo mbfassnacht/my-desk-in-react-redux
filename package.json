@@ -2,6 +2,7 @@
   "name": "my-desk-in-react-redux",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://maximobelen.com/my-desk-in-react-redux/",
   "dependencies": {
     "classnames": "^2.2.6",
     "react": "^16.10.2",
