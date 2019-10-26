@@ -1,0 +1,32 @@
+.tower-component {
+    position: relative;
+    background-color: #000000;
+    display: inline-block;
+    height: 250px;
+    width: 120px;
+    margin: 100px 50px 50px 50px;
+}
+
+.tower-component .power-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+}
+
+.tower-component .light {
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    height: 50px;
+    background-color: #333333;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+.tower-component .light.is-on {
+    background-color: #00ff00;
+}
