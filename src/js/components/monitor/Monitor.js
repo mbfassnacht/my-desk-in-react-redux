@@ -3,9 +3,13 @@ import './Monitor.css';
 import { connect } from "react-redux";
 import powerButton from '../../../svg/powerButton.svg';
 import classNames from 'classnames';
+import cursorIcon from '../../../svg/cursor.svg';
 
 const mapStateToProps = state => {
-    return { towerTurnedOn: state.turnedOn };
+    return { 
+        towerTurnedOn: state.turnedOn,
+        cursorPosition: state.mousePosition,
+    };
 };
 
 class ConnectedMonitor extends Component {
@@ -42,9 +46,27 @@ class ConnectedMonitor extends Component {
             );
         } else {
             return (
-                <div className={screenClasses} />
+                <div className={screenClasses}>
+                    <img style={this.calculateCursorPosition()} className="cursor" src={cursorIcon} />
+                </div>
             );
         }
+    }
+
+    calculateCursorPosition() {
+        
+        let x = Math.max(0 - this.props.monitorDeadPixels, this.props.cursorPosition.x * this.props.monitorScale);
+        let y = Math.max(0 - this.props.monitorDeadPixels, this.props.cursorPosition.y * this.props.monitorScale);
+
+        x =  Math.min(this.props.screenWidth - this.props.cursorWidth - this.props.monitorDeadPixels, x);
+        y =  Math.min(this.props.screenHeight - this.props.cursorHeight - this.props.monitorDeadPixels, y);
+
+        const cursorStyle = {
+            transform: `translate(${x}px, ${y}px)` 
+        };
+
+        return cursorStyle;
+
     }
 
     render() {
@@ -70,6 +92,16 @@ class ConnectedMonitor extends Component {
         );
     }
 }
+
+ConnectedMonitor.defaultProps = {
+    cursorHeight: 24,
+    cursorWidth: 24,
+    screenWidth: 380,
+    screenHeight: 200,
+    monitorScale: 2,
+    monitorDeadPixels: 10,
+}
+
 
 const Monitor = connect(
     mapStateToProps,

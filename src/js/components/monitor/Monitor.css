@@ -11,7 +11,7 @@
 }
 
 .monitor-component .screen {
-    width: 350px;
+    width: 360px;
     height: 180px;
     border-color: #000000;
     border-style: solid;
@@ -19,6 +19,7 @@
     padding: 5px;
     font-size: 12px;
     font-family: monospace;
+    position: relative;
 }
 
 .monitor-component .screen.is-on.has-connection {
@@ -39,9 +40,15 @@
     position: relative;
 }
 
-.monitor-component .monitor-stand {
-
+.monitor-component .screen .cursor {
+    position: absolute;
+    display: none;
 }
+
+.monitor-component .screen.has-connection .cursor {
+    display: block;
+}
+
 
 .monitor-component .monitor-stand .monitor-column {
     width: 30px;

@@ -11,10 +11,14 @@ class Desk extends Component {
     render() {
         return (
             <div className="desk-component">
-                <Monitor />
-                <Tower />
-                <Keyboard />
-                <Mouse />
+                <div className="arrangment-row">
+                    <Monitor />
+                    <Tower />
+                </div>
+                <div className="arrangment-row">
+                    <Keyboard />
+                    <Mouse />
+                </div>
                 <Speaker />
                 <Speaker />
                 <Camera />

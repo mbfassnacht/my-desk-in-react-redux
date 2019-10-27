@@ -1,4 +1,6 @@
-.desk-component {
+
+
+.desk-component .arrangment-row {
     display: flex;
     justify-content: center;
 }
