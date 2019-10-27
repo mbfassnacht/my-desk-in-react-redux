@@ -7,6 +7,7 @@
 
 .mouse-component .effective-mouse {
     display: flex;
+    cursor: pointer;
     width: 30px;
     height: 60px;
     border-radius: 20px;
