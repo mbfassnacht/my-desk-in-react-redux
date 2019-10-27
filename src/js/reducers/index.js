@@ -1,8 +1,9 @@
-import { MOVE_MOUSE, TURN_ON, TURN_OFF } from "../constants/action-types";
+import { KEY_CONSUMED, KEY_PRESS, MOVE_MOUSE, TURN_OFF, TURN_ON } from "../constants/action-types";
 
 const initialState = {
     turnedOn: false,
-    mousePosition: { x: 80, y: 20 } 
+    mousePosition: { x: 80, y: 20 },
+    keysPressed: ''
 };
 
 function rootReducer(state = initialState, action) {
@@ -23,6 +24,20 @@ function rootReducer(state = initialState, action) {
         return Object.assign({}, state, {
             mousePosition: action.payload
         });
+    }
+
+    if (action.type === KEY_PRESS) {
+        if (state.turnedOn) {
+            return Object.assign({}, state, {
+                keysPressed:  action.payload
+            });
+        }
+    }
+
+    if (action.type === KEY_CONSUMED) {
+        return Object.assign({}, state, {
+            keysPressed: ''
+        }); 
     }
     
     return state;

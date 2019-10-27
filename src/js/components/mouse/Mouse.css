@@ -2,6 +2,7 @@
     background-color: grey;
     width: 190px;
     height: 100px;
+    margin: 20px;
 }
 
 .mouse-component .effective-mouse {

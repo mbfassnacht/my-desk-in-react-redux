@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import powerButton from '../../../svg/powerButton.svg';
 import classNames from 'classnames';
 import cursorIcon from '../../../svg/cursor.svg';
+import TextEditor from '../textEditor/TextEditor';
 
 const mapStateToProps = state => {
     return { 
@@ -48,6 +49,7 @@ class ConnectedMonitor extends Component {
             return (
                 <div className={screenClasses}>
                     <img style={this.calculateCursorPosition()} className="cursor" src={cursorIcon} />
+                    <TextEditor isHidden={!this.state.turnedOn} />
                 </div>
             );
         }
