@@ -31,3 +31,15 @@
 .tower-component .light.is-on {
     background-color: #00ff00;
 }
+
+@media (max-width: 500px) { 
+    .tower-component  {
+        height: 125px;
+        width: 100%;
+        margin: 20px 50px 50px 50px;
+    }
+
+    .tower-component .light {
+        height: 30px;
+    }
+}
